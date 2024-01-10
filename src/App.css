@@ -48,8 +48,16 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(60%, 300%);
+
+  font-weight: 700;
+  outline: none;
 }
+
+.Hit:active,
+.Hit:focus {
+  outline: none;
+}
+
 
 .Stand {
   background: hsla(357, 100%, 69%, 1);
@@ -67,7 +75,15 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-120%, 300%);
+  font-weight: 700;
+  outline: none;
 }
+
+.Stand:active,
+.Stand:focus {
+  outline: none;
+}
+
 
   
   
