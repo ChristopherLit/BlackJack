@@ -84,9 +84,59 @@ body {
   outline: none;
 }
 
+.Deal {
+  background-color: #31425e;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px; 
+  width: 110px;
+  height: 50px;
+}
 
-  
-  
+.Half {
+  background-color: #1a243c;
+  color: #fff;
+  border: none;
+  border-radius: 13px;
+  margin-right: 10px; 
+  width: 80px;
+  height: 35px;
+  font-size: 75%;
+}
 
+
+.All-In {
+  background-color: #1a243c;
+  color: #fff;
+  border: none;
+  border-radius: 13px;
+  margin-right: 10px;
+  width: 80px;
+  height: 35px;
+  font-size: 75%;
+}
+
+
+.backdrop {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #000000e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: hidden;
+  border-radius: 50px;
+
+}
+
+.modal-bet {
+  background: linear-gradient(10deg,#fa0,#ff6a00);
+  background: var(--gradient)
+}
 
 

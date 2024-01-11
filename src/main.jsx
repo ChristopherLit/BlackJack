@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import Pop from './Pop.jsx'
+import Pop from './Modal.jsx'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
