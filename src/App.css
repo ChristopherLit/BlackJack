@@ -15,8 +15,8 @@ body {
 }
 
 .game-layout {
-   width: 70%;
-  height: 92%; 
+   width: 71%;
+  height: 91%; 
   display: flex;
   margin: auto;
   top: 50%;
@@ -28,7 +28,7 @@ body {
   background: -moz-linear-gradient(0deg, hsla(219, 34%, 30%, 1) 9%, hsla(223, 38%, 18%, 1) 100%);
   background: -webkit-linear-gradient(0deg, hsla(219, 34%, 30%, 1) 9%, hsla(223, 38%, 18%, 1) 100%);
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#324465", endColorstr="#1D2740", GradientType=1 );
-  border-radius: 50px;
+  border-radius: 80px;
   
 }
 
@@ -137,6 +137,30 @@ body {
 .modal-bet {
   background: linear-gradient(10deg,#fa0,#ff6a00);
   background: var(--gradient)
+}
+
+#dealer-cards img {
+  text-align: center;
+  height: 13%;
+  width: 70%;
+  margin: 5px;
+  border-radius: 20px;
+
+
+
+
+}
+
+#your-cards img {
+  text-align: center;
+  height: 13%;
+  width: 20%;
+  margin: 5px;
+  border-radius: 20px;
+
+
+
+
 }
 
 

@@ -15,7 +15,7 @@ function App() {
       <motion.button
         className='Hit'
         whileHover={{ scale: 1.1 }}
-        initial={{ x: '60%', y: '300%' }}
+        initial={{ x: '60%', y: '800%' }}
         whileTap={{ scale: 0.88 }}
         onClick={() => null}
       >
@@ -25,7 +25,7 @@ function App() {
       <motion.button 
       className='Stand'
       whileHover={{ scale: 1.1 }}
-        initial={{ x: '-120%', y: '300%' }}
+        initial={{ x: '-120%', y: '800%' }}
         whileTap={{ scale: 0.88 }}
         onClick={() => null}
         >
@@ -60,6 +60,13 @@ function App() {
   >
     {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} />}
   </AnimatePresence>
+
+  <div id="dealer-cards">
+    <img id="hidden" src="./public/BACK.png"/>
+  
+  </div>
+
+
 
 
     </div>
