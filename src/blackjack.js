@@ -53,18 +53,40 @@ function startGame() {
 
     //Dealer stands on 17
 
+    let dealerContainer = document.getElementById("dealer-cards");
     while (dealerSum < 17) {
-
         let theCard = deck.pop();
-        let img = document.createElement("Img");
+        let img = document.createElement("img");
         img.src = "./public/" + theCard + ".png";
         dealerSum += findValue(theCard);
         dealerAceCount += checkAce(theCard);
-        document.getElementById("dealer-cards").append(img);
-        
-    }
+
+        img.style.left = dealerContainer.children.length * 140 + "px";
+
+        dealerContainer.appendChild(img);
+        }
+
 
     console.log(dealerSum);
+
+    let yourContainer = document.getElementById("your-cards");
+for (let i = 0; i < 2; i++) {
+    let theCard = deck.pop();
+    let img = document.createElement("img");
+    img.src = "./public/" + theCard + ".png";
+    yourSum += findValue(theCard);
+    yourAceCount += checkAce(theCard);
+
+    // Set left property for each new card
+    img.style.left = yourContainer.children.length * 130 + "px";
+
+    yourContainer.appendChild(img);
+}
+
+
+    console.log(yourSum);
+
+    
   
 
 

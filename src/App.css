@@ -11,6 +11,7 @@ body {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: hidden;
+  text-align: center;
   
 }
 
@@ -139,28 +140,32 @@ body {
   background: var(--gradient)
 }
 
+#dealer-cards {
+  position: relative;
+}
+
 #dealer-cards img {
-  text-align: center;
-  height: 13%;
-  width: 70%;
+  height: 175px;
+  width: 125px;
   margin: 5px;
   border-radius: 20px;
+  bottom: 50%;
+  position: absolute;
+}
 
 
-
-
+#your-cards {
+  position: relative;
 }
 
 #your-cards img {
-  text-align: center;
-  height: 13%;
-  width: 20%;
+  height: 175px;
+  width: 125px;
   margin: 5px;
   border-radius: 20px;
-
-
-
-
+  bottom: 20%;
+  position: absolute;
 }
+
 
 
