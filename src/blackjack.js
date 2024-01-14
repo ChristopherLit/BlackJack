@@ -50,6 +50,21 @@ function startGame() {
     hidden = deck.pop();
     dealerSum += findValue(hidden);
     dealerAceCount += checkAce(hidden);
+
+    //Dealer stands on 17
+
+    while (dealerSum < 17) {
+
+        let theCard = deck.pop();
+        let img = document.createElement("Img");
+        img.src = "./public/" + theCard + ".png";
+        dealerSum += findValue(theCard);
+        dealerAceCount += checkAce(theCard);
+        document.getElementById("dealer-cards").append(img);
+        
+    }
+
+    console.log(dealerSum);
   
 
 
