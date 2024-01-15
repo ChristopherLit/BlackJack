@@ -54,17 +54,17 @@ function startGame() {
     //Dealer stands on 17
 
     let dealerContainer = document.getElementById("dealer-cards");
-    while (dealerSum < 17) {
-        let theCard = deck.pop();
+  
+        let firstCard = deck.pop();
         let img = document.createElement("img");
-        img.src = "./public/" + theCard + ".png";
-        dealerSum += findValue(theCard);
-        dealerAceCount += checkAce(theCard);
+        img.src = "./public/" + firstCard + ".png";
+        dealerSum += findValue(firstCard);
+        dealerAceCount += checkAce(firstCard);
 
         img.style.left = dealerContainer.children.length * 140 + "px";
 
         dealerContainer.appendChild(img);
-        }
+  
 
     let yourContainer = document.getElementById("your-cards");
     for (let i = 0; i < 2; i++) {
@@ -80,6 +80,8 @@ function startGame() {
         }
 
         document.getElementById("Hit").addEventListener("click", hit);
+        document.getElementById("Stand").addEventListener("click", stand);
+    
         
   
 
@@ -144,7 +146,54 @@ function hit() {
     if (reduceAce(yourSum, yourAceCount) >= 21) {
 
         canHit = false;
+        console.log("out");
     }
+
+
+}
+
+function stand() {
+
+    canHit = false;
+
+    //Dealer stands on 17
+
+    let dealerContainer = document.getElementById("dealer-cards");
+    while (dealerSum < 17) {
+        let theCard = deck.pop();
+        let img = document.createElement("img");
+        img.src = "./public/" + theCard + ".png";
+        dealerSum += findValue(theCard);
+        dealerAceCount += checkAce(theCard);
+
+        img.style.left = dealerContainer.children.length * 140 + "px";
+
+        dealerContainer.appendChild(img);
+        }
+
+    dealerSum = reduceAce(dealerSum, dealerAceCount);
+    yourSum = reduceAce(yourSum, yourAceCount)
+
+    document.getElementById("hidden").src = "./public/" + hidden + ".png";
+
+    //CAN ASSUME YOUR SUM IS 21 AND BELOW
+
+    if (dealerSum > 21) { //You win
+
+
+    } else if (yourSum < dealerSum) { //Dealer wins
+
+
+    } else if (yourSum > dealerSum) { //You win
+
+
+        //Push
+    } else {  //Tie
+
+
+
+    }
+
 
 
 }
