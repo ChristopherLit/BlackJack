@@ -14,6 +14,7 @@ function App() {
 
       <motion.button
         className='Hit'
+        id="Hit"
         whileHover={{ scale: 1.1 }}
         initial={{ x: '60%', y: '800%' }}
         whileTap={{ scale: 0.88 }}
@@ -24,6 +25,7 @@ function App() {
 
       <motion.button 
       className='Stand'
+      id="Stand"
       whileHover={{ scale: 1.1 }}
         initial={{ x: '-120%', y: '800%' }}
         whileTap={{ scale: 0.88 }}
@@ -44,6 +46,13 @@ function App() {
   test
 </button>
 
+  <div id="dealer-cards">
+    <img id="hidden" src="./public/BACK.png"/>
+  
+  </div>
+
+  <div id="your-cards"></div>
+
 
       <AnimatePresence
     // Disable any initial animations on children that
@@ -61,16 +70,7 @@ function App() {
     {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} />}
   </AnimatePresence>
 
-  <div id="dealer-cards">
-    <img id="hidden" src="./public/BACK.png"/>
-  
-  </div>
-
-  <div id="your-cards"></div>
-
-  
-
-
+ 
 
 
     </div>

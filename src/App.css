@@ -142,6 +142,7 @@ body {
 
 #dealer-cards {
   position: relative;
+  text-align: center;
 }
 
 #dealer-cards img {
