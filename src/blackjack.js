@@ -57,7 +57,7 @@ function startGame() {
   
         let firstCard = deck.pop();
         let img = document.createElement("img");
-        img.src = "./public/" + firstCard + ".png";
+        img.src = "./src/assets/" + firstCard + ".png";
         dealerSum += findValue(firstCard);
         dealerAceCount += checkAce(firstCard);
 
@@ -70,7 +70,7 @@ function startGame() {
     for (let i = 0; i < 2; i++) {
         let theCard = deck.pop();
         let img = document.createElement("img");
-        img.src = "./public/" + theCard + ".png";
+        img.src = "./src/assets/" + theCard + ".png";
         yourSum += findValue(theCard);
         yourAceCount += checkAce(theCard);
 
@@ -135,7 +135,7 @@ function hit() {
 
     let theCard = deck.pop();
     let img = document.createElement("img");
-    img.src = "./public/" + theCard + ".png";
+    img.src = "./src/assets/" + theCard + ".png";
     yourSum += findValue(theCard);
     yourAceCount += checkAce(theCard);
 
@@ -162,7 +162,7 @@ function stand() {
     while (dealerSum < 17) {
         let theCard = deck.pop();
         let img = document.createElement("img");
-        img.src = "./public/" + theCard + ".png";
+        img.src = "./src/assets/" + theCard + ".png";
         dealerSum += findValue(theCard);
         dealerAceCount += checkAce(theCard);
 
@@ -174,7 +174,7 @@ function stand() {
     dealerSum = reduceAce(dealerSum, dealerAceCount);
     yourSum = reduceAce(yourSum, yourAceCount)
 
-    document.getElementById("hidden").src = "./public/" + hidden + ".png";
+    document.getElementById("hidden").src = "./src/assets/" + hidden + ".png";
 
     //CAN ASSUME YOUR SUM IS 21 AND BELOW
 

@@ -168,5 +168,15 @@ body {
   position: absolute;
 }
 
+.value {
+
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  color: white;
+  font-size: 500%;
+  
+}
+
 
 

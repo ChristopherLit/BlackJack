@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence} from 'framer-motion';
 import './App.css';
 import Modal from './Modal';
+import Buttons from './Buttons';
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -10,29 +11,14 @@ function App() {
 
   return (
     <div className='game-layout'>
-      <h1 className='title'>BlackJack</h1>
 
-      <motion.button
-        className='Hit'
-        id="Hit"
-        whileHover={{ scale: 1.1 }}
-        initial={{ x: '60%', y: '800%' }}
-        whileTap={{ scale: 0.88 }}
-        onClick={() => null}
-      >
-        Hit
-      </motion.button>
+      <div className='title'>
+        <h1>BlackJack</h1>
+      </div>
 
-      <motion.button 
-      className='Stand'
-      id="Stand"
-      whileHover={{ scale: 1.1 }}
-        initial={{ x: '-120%', y: '800%' }}
-        whileTap={{ scale: 0.88 }}
-        onClick={() => null}
-        >
-      Stand
-      </motion.button>
+      <Buttons></Buttons>
+      
+
       
       
       <button // TEMPORARY
@@ -47,12 +33,15 @@ function App() {
 </button>
 
   <div id="dealer-cards">
-    <img id="hidden" src="./public/BACK.png"/>
+    <img id="hidden" src="./src/assets/BACK.png"/>
   
   </div>
 
   <div id="your-cards"></div>
 
+  <div  id="value" className='value'>12</div>
+ 
+      
 
       <AnimatePresence
     // Disable any initial animations on children that
