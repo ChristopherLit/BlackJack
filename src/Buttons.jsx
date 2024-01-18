@@ -9,7 +9,6 @@ function Buttons() {
         className='Hit'
         id="Hit"
         whileHover={{ scale: 1.1 }}
-        initial={{ x: '60%', y: '800%' }}
         whileTap={{ scale: 0.88 }}
         onClick={() => null}
       >
@@ -20,7 +19,6 @@ function Buttons() {
       className='Stand'
       id="Stand"
       whileHover={{ scale: 1.1 }}
-        initial={{ x: '-120%', y: '800%' }}
         whileTap={{ scale: 0.88 }}
         onClick={() => null}
         >

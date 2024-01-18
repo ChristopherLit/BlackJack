@@ -1,4 +1,6 @@
-body {
+.full-layout {
+  font-family: Tahoma, sans-serif;
+
   margin: 0;
   padding: 0;
   background: hsla(269, 92%, 80%, 1);
@@ -12,17 +14,19 @@ body {
   overflow-x: hidden;
   overflow-y: hidden;
   text-align: center;
-  
+
+
 }
 
 .game-layout {
-   width: 71%;
+  width: 71%;
   height: 91%; 
-  display: flex;
   margin: auto;
+  display: flex;
+  flex-direction: column; 
+  position: absolute;
   top: 50%;
   left: 50%;
-  position: fixed;
   transform: translate(-50%, -50%);
   background: hsla(219, 34%, 30%, 1);
   background: linear-gradient(0deg, hsla(219, 34%, 30%, 1) 9%, hsla(223, 38%, 18%, 1) 100%);
@@ -34,6 +38,7 @@ body {
 }
 
 
+
 .Hit {
   background: hsla(120, 40%, 56%, 1);
   background: radial-gradient(circle, hsla(120, 40%, 56%, 1) 0%, hsla(122, 39%, 49%, 1) 100%);
@@ -42,17 +47,20 @@ body {
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#64BC64", endColorstr="#4CAF50", GradientType=1 );
   color: #fff;
   border: none;
-  border-radius: 20px;
+  border-radius: 25px;
   margin-right: 10px; 
-  width: 93px;
-  height: 50px;
+  width: 40%;
+  height: 55%;
   position: absolute;
-  top: 50%;
-  left: 50%;
-
-  font-weight: 700;
+  top: 50%; 
+  right: 50%; 
+  font-weight: 550;
   outline: none;
+  z-index: 2;
+  font-size: 130%;
 }
+
+
 
 .Hit:active,
 .Hit:focus {
@@ -68,16 +76,17 @@ body {
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#FF636B", endColorstr="#F75058", GradientType=1 );
   color: #fff;
   border: none;
-  border-radius: 20px;
+  border-radius: 25px;
   margin-right: 10px; 
-  width: 93px;
-  height: 50px;
+  width: 40%;
+  height: 55%;
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-120%, 300%);
-  font-weight: 700;
+  left: 60%;
+  font-weight: 550;
   outline: none;
+  z-index: 2;
+  font-size: 130%;
 }
 
 .Stand:active,
@@ -141,41 +150,152 @@ body {
 }
 
 #dealer-cards {
-  position: relative;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+  bottom: 65%;
 }
 
+
 #dealer-cards img {
-  height: 175px;
-  width: 125px;
-  margin: 5px;
-  border-radius: 20px;
-  bottom: 50%;
-  position: absolute;
+  height: 10%;
+  width: 7%;
+  margin: 0.5%;
+  border-radius: 2%;
+  position: relative;
 }
 
 
 #your-cards {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+  bottom: 25%;
 }
 
 #your-cards img {
-  height: 175px;
-  width: 125px;
-  margin: 5px;
-  border-radius: 20px;
-  bottom: 20%;
-  position: absolute;
+  height: 10%;
+  width: 7%;
+  margin: 0.5%;
+  border-radius: 2%;
+  
+  position: relative;
 }
 
-.value {
+.board {
+  position: absolute;
+  width: 80%; 
+  height: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  
+}
+
+#GameBoard {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+
+.buttons {
 
   position: absolute;
-  top: 65%;
+  bottom: 8%;
+  left: 40%;
+  z-index: 2;
+  height:10%;
+  width: 20%;
+
+
+}
+
+.your-value {
+
+  position: absolute;
   left: 50%;
-  color: white;
-  font-size: 500%;
+  bottom: 50%;
+  transform: translate(-50%, 25%);
+  color: #F93844;
+  font-size: 250%;
+  z-index: 2;
+  font-weight: 150;
   
+}
+
+.your-word {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 130%);
+  color: #bbc3ca;
+  font-size: 1em;
+  z-index: 2;
+  font-weight: 500;
+}
+
+.your-score {
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 330%);
+  height: 11%;
+  width: 8%;
+  z-index: 1;
+    
+  border-radius: 15px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.dealer-value {
+
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 25%);
+  color: #F93844;
+  font-size: 250%;
+  z-index: 2;
+  font-weight: 150;
+  
+}
+
+.dealer-word {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 130%);
+  color: #bbc3ca;
+  font-size: 1em;
+  z-index: 2;
+  font-weight: 500;
+}
+
+.dealer-score {
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -30%);
+  height: 11%;
+  width: 8%;
+  z-index: 1;
+  
+  border-radius: 15px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+
 }
 
 

@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { motion, AnimatePresence} from 'framer-motion';
 import './App.css';
 import Modal from './Modal';
-import Buttons from './Buttons';
+import Board from './Board';
+import Buttons from './Buttons'
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -10,13 +11,19 @@ function App() {
   const open = () => setModalOpen(true);
 
   return (
+
+    <div id='full-layout' className='full-layout'>
     <div className='game-layout'>
 
       <div className='title'>
         <h1>BlackJack</h1>
       </div>
 
+      <Board></Board>
       <Buttons></Buttons>
+
+      
+      
       
 
       
@@ -32,15 +39,8 @@ function App() {
   test
 </button>
 
-  <div id="dealer-cards">
-    <img id="hidden" src="./src/assets/BACK.png"/>
-  
-  </div>
 
-  <div id="your-cards"></div>
 
-  <div  id="value" className='value'>12</div>
- 
       
 
       <AnimatePresence
@@ -62,6 +62,7 @@ function App() {
  
 
 
+    </div>
     </div>
   );
 }

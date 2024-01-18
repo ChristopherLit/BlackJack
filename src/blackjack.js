@@ -61,33 +61,28 @@ function startGame() {
         dealerSum += findValue(firstCard);
         dealerAceCount += checkAce(firstCard);
 
-        img.style.left = dealerContainer.children.length * 140 + "px";
+        img.style.flex = "0 0 auto";
 
         dealerContainer.appendChild(img);
   
 
     let yourContainer = document.getElementById("your-cards");
     for (let i = 0; i < 2; i++) {
+
         let theCard = deck.pop();
         let img = document.createElement("img");
         img.src = "./src/assets/" + theCard + ".png";
         yourSum += findValue(theCard);
         yourAceCount += checkAce(theCard);
-
-        img.style.left = yourContainer.children.length * 140 + "px";
-
+    
+        img.style.flex = "0 0 auto";
+    
         yourContainer.appendChild(img);
         }
 
         document.getElementById("Hit").addEventListener("click", hit);
         document.getElementById("Stand").addEventListener("click", stand);
     
-        
-  
-
-
-
-
 }
 
 function findValue(card) {
@@ -125,10 +120,8 @@ function checkAce(card) {
 }
 
 function hit() {
-
-    if (canHit == false) {
+    if (canHit === false) {
         return;
-
     }
 
     let yourContainer = document.getElementById("your-cards");
@@ -139,18 +132,16 @@ function hit() {
     yourSum += findValue(theCard);
     yourAceCount += checkAce(theCard);
 
-    img.style.left = yourContainer.children.length * 140 + "px";
+    img.style.flex = "0 0 auto";
 
     yourContainer.appendChild(img);
 
     if (reduceAce(yourSum, yourAceCount) >= 21) {
-
         canHit = false;
         console.log("out");
     }
-
-
 }
+
 
 function stand() {
 
@@ -166,7 +157,7 @@ function stand() {
         dealerSum += findValue(theCard);
         dealerAceCount += checkAce(theCard);
 
-        img.style.left = dealerContainer.children.length * 140 + "px";
+        img.style.flex = "0 0 auto";
 
         dealerContainer.appendChild(img);
         }
