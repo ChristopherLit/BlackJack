@@ -9,6 +9,10 @@ var deck;
 
 var canHit = true;
 
+
+
+
+
 window.onload = function() {
 
     buildDeck();
@@ -54,6 +58,8 @@ function startGame() {
     //Dealer stands on 17
 
     let dealerContainer = document.getElementById("dealer-cards");
+    let dealerValueContainer = document.getElementById("dealer-value");
+    
   
         let firstCard = deck.pop();
         let img = document.createElement("img");
@@ -64,9 +70,14 @@ function startGame() {
         img.style.flex = "0 0 auto";
 
         dealerContainer.appendChild(img);
+        
+        dealerValueContainer.textContent = findValue(firstCard);
+       
   
 
     let yourContainer = document.getElementById("your-cards");
+    let yourValueContainer = document.getElementById("your-value");
+
     for (let i = 0; i < 2; i++) {
 
         let theCard = deck.pop();
@@ -78,6 +89,13 @@ function startGame() {
         img.style.flex = "0 0 auto";
     
         yourContainer.appendChild(img);
+        }
+        
+        yourValueContainer.textContent = yourSum;
+
+        if (yourSum > 21) {
+
+            yourSum = reduceAce(yourSum, yourAceCount, true);
         }
 
         document.getElementById("Hit").addEventListener("click", hit);
@@ -136,10 +154,18 @@ function hit() {
 
     yourContainer.appendChild(img);
 
-    if (reduceAce(yourSum, yourAceCount) >= 21) {
+    if (yourSum > 21) {
+
+        yourSum = reduceAce(yourSum, yourAceCount, true);
+    }
+
+    if (reduceAce(yourSum, yourAceCount) > 21) {
         canHit = false;
         console.log("out");
     }
+
+    let yourValueContainer = document.getElementById("your-value");
+        yourValueContainer.textContent = yourSum;
 }
 
 
@@ -162,10 +188,18 @@ function stand() {
         dealerContainer.appendChild(img);
         }
 
-    dealerSum = reduceAce(dealerSum, dealerAceCount);
-    yourSum = reduceAce(yourSum, yourAceCount)
+        if (dealerSum > 21) {
+
+            dealerSum = reduceAce(dealerSum, dealerAceCount, false);
+
+        }
+
+        console.log(dealerSum);
 
     document.getElementById("hidden").src = "./src/assets/" + hidden + ".png";
+
+    let dealerValueContainer = document.getElementById("dealer-value");
+        dealerValueContainer.textContent = dealerSum;
 
     //CAN ASSUME YOUR SUM IS 21 AND BELOW
 
@@ -189,12 +223,21 @@ function stand() {
 
 }
 
-function reduceAce(sum, aceCount) {
+function reduceAce(sum, aceCount, isYou) {
 
     while (sum > 21 && aceCount > 0) {
 
         sum = sum - 10;
         aceCount = aceCount - 1;
+
+        if (isYou == true) {
+
+            yourAceCount = aceCount;
+
+        } else {
+
+            dealerAceCount = aceCount;
+        }
 
     }
 

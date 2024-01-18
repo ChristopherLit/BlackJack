@@ -17,7 +17,7 @@ function Board() {
 
   <div className='dealer-score'>
 
-<div className='dealer-value'>12</div>
+<div id ="dealer-value" className='dealer-value'>12</div>
 <div className='dealer-word'>Dealer</div>
 
 
@@ -25,7 +25,7 @@ function Board() {
 
   <div className='your-score'>
 
-  <div className='your-value'>12</div>
+  <div id ="your-value" className='your-value'>12</div>
   <div className='your-word'>Player</div>
 
 
