@@ -36,6 +36,8 @@ const Modal = ({handleClose, text}) => {
 
   return (
 
+    <div className = 'betting-window'>
+
     <Backdrop>
 
       <motion.div
@@ -49,16 +51,19 @@ const Modal = ({handleClose, text}) => {
     <ModalButton className="Half" label="Half"></ModalButton>
     <ModalButton className="All-In" label="All In"></ModalButton>
     <ModalButton className="Deal" label="Deal" onClick={handleClose}></ModalButton>
-    <div style={{ padding: "10px", width: "110%" }}>
-      <p>${value1}</p>
-      <Slider value={value1} onChange={(e) => setValue1(e.value)} />
-    </div>
+    <div style={{ padding: "10px", width: "80%", textAlign: "left" , fontSize: "150%", color: "white"  }}>
+  <p>${value1}</p>
+  <Slider style={{ width: "100%" }} value={value1} onChange={(e) => setValue1(e.value)} />
+</div>
+
   </div>
 
       </motion.div>
 
 
     </Backdrop>
+
+    </div>
 
   );
 
