@@ -3,8 +3,6 @@ import "primereact/resources/themes/saga-green/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
 
-import { Slider } from 'primereact/slider';
-import { useState } from 'react';
 import { motion } from "framer-motion"
 import './App.css';
 import Backdrop from './Backdrop';
@@ -32,7 +30,7 @@ const dropIn = {
 };
 
 const Modal = ({handleClose, text}) => {
-  const [value1, setValue1] = useState(null);
+
 
   return (
 
@@ -50,10 +48,18 @@ const Modal = ({handleClose, text}) => {
     <div className="popup-container">
     <ModalButton className="Half" label="Half"></ModalButton>
     <ModalButton className="All-In" label="All In"></ModalButton>
+
+    <div class="container-chips">
+        <div class ="chip" id="Chip1"></div>
+        <div class ="chip" id="Chip5"></div>
+        <div class ="chip" id="Chip25"></div>
+        <div class ="chip" id="Chip100"></div>
+        <div class ="chip" id="Chip500"></div>
+    </div>
+
     <ModalButton className="Deal" label="Deal" onClick={handleClose}></ModalButton>
     <div style={{ padding: "10px", width: "80%", textAlign: "left" , fontSize: "150%", color: "white"  }}>
-  <p>${value1}</p>
-  <Slider style={{ width: "100%" }} value={value1} onChange={(e) => setValue1(e.value)} />
+ 
 </div>
 
   </div>

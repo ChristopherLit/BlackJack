@@ -100,8 +100,13 @@
   border: none;
   border-radius: 4px;
   margin-right: 10px; 
-  width: 110px;
-  height: 50px;
+  width: 20%;
+  height: 12%;
+  left: 40%;
+  bottom: 10%;
+  position: absolute;
+
+
 }
 
 .Deal:active,
@@ -118,6 +123,10 @@
   width: 80px;
   height: 35px;
   font-size: 75%;
+  top: 10%;
+  right: 35%;
+  position: absolute;
+  
 }
 
 .Half:active,
@@ -135,6 +144,9 @@
   width: 80px;
   height: 35px;
   font-size: 75%;
+  top: 10%;
+  right: 20%;
+  position: absolute;
 }
 
 .All-In:active,
@@ -331,12 +343,75 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 40%; 
-  width: 40%; 
+  height: 40%;
+  width: 40%;
   background-color: #1e222b;
  
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
+
+}
+
+.container-chips {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 60%;
+  width: 100%;
+
+
+}
+
+.chip {
+
+    width: 25%;
+    height: 25%;
+
+}
+
+#Chip1 {
+
+  background-image: url('assets\1.png');
+  background-size: cover;
+  background-position: center;
+
+
+}
+
+#Chip5 {
+
+  background-image: url('assets\5.png');
+  background-size: cover;
+  background-position: center;
+
+
+}
+
+#Chip25 {
+
+  background-image: url('assets\25.png');
+  background-size: cover;
+  background-position: center;
+
+
+}
+
+#Chip100 {
+
+  background-image: url('assets\100.png');
+  background-size: cover;
+  background-position: center;
+
+
+}
+
+#Chip500 {
+
+  background-image: url('assets\500.png');
+  background-size: cover;
+  background-position: center;
+
 
 }
 
