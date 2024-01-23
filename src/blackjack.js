@@ -1,3 +1,5 @@
+import myMessage from './Message';
+
 var dealerSum = 0;
 var yourSum = 0;
 
@@ -9,8 +11,8 @@ var deck;
 
 var canHit = true;
 
-
-
+let bank = 0;
+let gambled = 0;
 
 
 window.onload = function() {
@@ -18,6 +20,7 @@ window.onload = function() {
     buildDeck();
     shuffle();
     startGame()
+    bank = 500; //STARTING AMOUNT
 }
 
 function buildDeck() {
@@ -205,15 +208,20 @@ function stand() {
 
     if (dealerSum > 21) { //You win
 
+        bank += gambled * 2;
 
     } else if (yourSum < dealerSum) { //Dealer wins
 
+        bank = bank - gambled;
 
     } else if (yourSum > dealerSum) { //You win
 
+        bank += gambled * 2;
 
         //Push
     } else {  //Tie
+
+
 
 
 

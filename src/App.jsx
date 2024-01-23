@@ -3,7 +3,8 @@ import { motion, AnimatePresence} from 'framer-motion';
 import './App.css';
 import Modal from './Modal';
 import Board from './Board';
-import Buttons from './Buttons'
+import Buttons from './Buttons';
+
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -22,11 +23,6 @@ function App() {
       <Board></Board>
       <Buttons></Buttons>
 
-      
-      
-      
-
-      
       
       <button // TEMPORARY
   onClick={() => (modalOpen ? close() : open())}

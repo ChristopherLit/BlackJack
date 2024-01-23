@@ -359,14 +359,14 @@
   justify-content: center;
   height: 60%;
   width: 100%;
-
+  margin-top: 18%;
 
 }
 
 .chip {
 
     width: 25%;
-    height: 25%;
+    height: 50%
 
 }
 
@@ -384,7 +384,6 @@
   background-image: url('assets\5.png');
   background-size: cover;
   background-position: center;
-
 
 }
 
@@ -414,6 +413,23 @@
 
 
 }
+
+.amount-to-bet {
+
+  position: absolute;
+  left: 50%;
+  bottom: 30%;
+  transform: translate(-50%, 25%);
+  color: white;
+  font-size: 250%;
+  z-index: 2;
+  font-weight: 150;
+
+
+
+
+}
+
 
 
 

@@ -1,12 +1,8 @@
-
-import "primereact/resources/themes/saga-green/theme.css";
-import "primereact/resources/primereact.min.css";
-import "primeicons/primeicons.css";
-
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
+import { useEffect } from "react";
 import './App.css';
 import Backdrop from './Backdrop';
-
+import betting from './betting';
 
 const dropIn = {
   hidden: {
@@ -29,55 +25,52 @@ const dropIn = {
   },
 };
 
-const Modal = ({handleClose, text}) => {
+const Modal = ({ handleClose, text }) => {
+  // Run the betting function when the component mounts
+  useEffect(() => {
+    betting();
 
+    // Clean up event listeners when the component unmounts
+    return () => {
+      // Remove the event listeners or perform any necessary cleanup
+    };
+  }, []); // Empty dependency array means it runs once after initial render
 
   return (
-
-    <div className = 'betting-window'>
-
-    <Backdrop>
-
-      <motion.div
-      
-      onClick={(e) => e.stopPropagation()}
-      className="modal-bet"
-      variants={dropIn}
-      >
-
-    <div className="popup-container">
-    <ModalButton className="Half" label="Half"></ModalButton>
-    <ModalButton className="All-In" label="All In"></ModalButton>
-
-    <div class="container-chips">
-        <div class ="chip" id="Chip1"></div>
-        <div class ="chip" id="Chip5"></div>
-        <div class ="chip" id="Chip25"></div>
-        <div class ="chip" id="Chip100"></div>
-        <div class ="chip" id="Chip500"></div>
+    <div className='betting-window'>
+      <Backdrop>
+        <motion.div
+          onClick={(e) => e.stopPropagation()}
+          className="modal-bet"
+          variants={dropIn}
+        >
+          <div className="popup-container">
+            <ModalButton className="Half" label="Half"></ModalButton>
+            <ModalButton className="All-In" label="All In"></ModalButton>
+            <div className="container-chips">
+              <div className="chip" id="Chip1"></div>
+              <div className="chip" id="Chip5"></div>
+              <div className="chip" id="Chip25"></div>
+              <div className="chip" id="Chip100"></div>
+              <div className="chip" id="Chip500"></div>
+            </div>
+            <div id = 'amount-to-bet' className='amount-to-bet'>500</div>
+            <ModalButton
+              className="Deal"
+              label="Deal"
+              onClick={handleClose}
+            ></ModalButton>
+            <div style={{ padding: "10px", width: "80%", textAlign: "left", fontSize: "150%", color: "white" }}></div>
+          </div>
+        </motion.div>
+      </Backdrop>
     </div>
-
-    <ModalButton className="Deal" label="Deal" onClick={handleClose}></ModalButton>
-    <div style={{ padding: "10px", width: "80%", textAlign: "left" , fontSize: "150%", color: "white"  }}>
- 
-</div>
-
-  </div>
-
-      </motion.div>
-
-
-    </Backdrop>
-
-    </div>
-
   );
-
 };
 
 const ModalButton = ({ onClick, label, className }) => (
   <motion.button
-  className={`modal-button ${className}`}
+    className={`modal-button ${className}`}
     type="button"
     whileHover={{ scale: 1.1 }}
     whileTap={{ scale: 0.88 }}

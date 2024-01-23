@@ -1,0 +1,45 @@
+import './Modal.jsx';
+
+function betting() {
+    document.getElementById("Chip1").addEventListener("click", add1);
+    document.getElementById("Chip5").addEventListener("click", add5);
+    document.getElementById("Chip25").addEventListener("click", add25);
+    document.getElementById("Chip100").addEventListener("click", add100);
+    document.getElementById("Chip500").addEventListener("click", add500);
+
+    let total = 0; //Make total equal to their betting amount
+  
+    function add1() {
+      updateBettingAmount(1);
+    }
+  
+    function add5() {
+      updateBettingAmount(5);
+    }
+  
+    function add25() {
+      updateBettingAmount(25);
+    }
+  
+    function add100() {
+      updateBettingAmount(100);
+    }
+  
+    function add500() {
+      updateBettingAmount(500);
+    }
+  
+    function updateBettingAmount(amount) {
+
+        let yourContainer = document.getElementById("amount-to-bet");
+
+        total += amount;
+
+        yourContainer.textContent = total;
+    
+
+    }
+  }
+  
+  export default betting;
+  
