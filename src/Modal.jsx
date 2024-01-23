@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import './App.css';
 import Backdrop from './Backdrop';
 import betting from './betting';
+import ContainerChips from "./ContainerChips";
 
 const dropIn = {
   hidden: {
@@ -47,13 +48,9 @@ const Modal = ({ handleClose, text }) => {
           <div className="popup-container">
             <ModalButton className="Half" label="Half"></ModalButton>
             <ModalButton className="All-In" label="All In"></ModalButton>
-            <div className="container-chips">
-              <div className="chip" id="Chip1"></div>
-              <div className="chip" id="Chip5"></div>
-              <div className="chip" id="Chip25"></div>
-              <div className="chip" id="Chip100"></div>
-              <div className="chip" id="Chip500"></div>
-            </div>
+            
+            <ContainerChips /> 
+           
             <div id = 'amount-to-bet' className='amount-to-bet'>500</div>
             <ModalButton
               className="Deal"

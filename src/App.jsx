@@ -5,7 +5,6 @@ import Modal from './Modal';
 import Board from './Board';
 import Buttons from './Buttons';
 
-
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const close = () => setModalOpen(false);
