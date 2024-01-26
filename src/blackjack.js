@@ -252,3 +252,7 @@ function reduceAce(sum, aceCount, isYou) {
     return sum;
 
 }
+
+export function getBank() {
+    return bank;
+}

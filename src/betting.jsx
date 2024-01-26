@@ -1,4 +1,5 @@
 import './Modal.jsx';
+import {getBank} from './blackjack.js';
 
 function betting() {
     document.getElementById("Chip1").addEventListener("click", add1);
@@ -34,10 +35,19 @@ function betting() {
 
     function half() {
 
+      let yourContainer = document.getElementById("amount-to-bet");
+      total = getBank() / 2;
+      yourContainer.textContent = total;
+
+      console.log(bank + "");
 
     }
 
     function allIn() {
+
+      let yourContainer = document.getElementById("amount-to-bet");
+      total = getBank();
+      yourContainer.textContent = total;
 
 
     }
