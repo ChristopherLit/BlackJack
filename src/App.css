@@ -115,7 +115,7 @@
 }
 
 .Half {
-  background-color: #1a243c;
+  background-color: #596b8a;
   color: #fff;
   border: none;
   border-radius: 13px;
@@ -123,10 +123,26 @@
   width: 80px;
   height: 35px;
   font-size: 75%;
-  top: 10%;
-  right: 35%;
-  position: absolute;
   
+}
+
+.Clear {
+
+    background-color: #596b8a;
+    color: #fff;
+    border: none;
+    border-radius: 13px;
+    margin-right: 10px; 
+    width: 80px;
+    height: 35px;
+    font-size: 75%;
+ 
+  
+}
+
+.Clear:active,
+.Clear:focus {
+  outline: none;
 }
 
 .Half:active,
@@ -136,7 +152,7 @@
 
 
 .All-In {
-  background-color: #1a243c;
+  background-color: #596b8a;
   color: #fff;
   border: none;
   border-radius: 13px;
@@ -144,14 +160,25 @@
   width: 80px;
   height: 35px;
   font-size: 75%;
-  top: 10%;
-  right: 20%;
-  position: absolute;
+
 }
 
 .All-In:active,
 .All-In:focus {
   outline: none;
+}
+
+.button-container {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 10%;
+  width: 90%;
+  position: relative;
+  top: 12%;
+  margin: auto;
+
 }
 
 
@@ -359,7 +386,7 @@
   justify-content: center;
   height: 60%;
   width: 100%;
-  margin-top: 18%;
+  margin-top: 10%;
 
 }
 

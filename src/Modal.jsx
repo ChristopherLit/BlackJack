@@ -46,8 +46,12 @@ const Modal = ({ handleClose, text }) => {
           variants={dropIn}
         >
           <div className="popup-container">
-            <ModalButton className="Half" label="Half"></ModalButton>
-            <ModalButton className="All-In" label="All In"></ModalButton>
+
+            <div className="button-container">
+                <ModalButton className="Half" label="Half"></ModalButton>
+                <ModalButton className="All-In" label="All In"></ModalButton>
+                <ModalButton className="Clear" label="Clear"></ModalButton>
+            </div>
             
             <ContainerChips /> 
            
@@ -68,10 +72,12 @@ const Modal = ({ handleClose, text }) => {
 const ModalButton = ({ onClick, label, className }) => (
   <motion.button
     className={`modal-button ${className}`}
+    id={`${className}`}
     type="button"
     whileHover={{ scale: 1.1 }}
     whileTap={{ scale: 0.88 }}
     onClick={onClick}
+    
   >
     {label}
   </motion.button>

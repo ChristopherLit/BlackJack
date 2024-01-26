@@ -6,6 +6,9 @@ function betting() {
     document.getElementById("Chip25").addEventListener("click", add25);
     document.getElementById("Chip100").addEventListener("click", add100);
     document.getElementById("Chip500").addEventListener("click", add500);
+    document.getElementById("Half").addEventListener("click", half);
+    document.getElementById("All-In").addEventListener("click", allIn);
+    document.getElementById("Clear").addEventListener("click", clear);
 
     let total = 0; //Make total equal to their betting amount
   
@@ -28,13 +31,29 @@ function betting() {
     function add500() {
       updateBettingAmount(500);
     }
+
+    function half() {
+
+
+    }
+
+    function allIn() {
+
+
+    }
+
+    function clear() {
+
+      let yourContainer = document.getElementById("amount-to-bet");
+      total = 0;
+      yourContainer.textContent = "0";
+
+    }
   
     function updateBettingAmount(amount) {
 
         let yourContainer = document.getElementById("amount-to-bet");
-
         total += amount;
-
         yourContainer.textContent = total;
     
 
