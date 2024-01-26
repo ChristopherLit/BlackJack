@@ -15,12 +15,13 @@ let bank = 0;
 let gambled = 0;
 
 
-window.onload = function() {
+export function startEverything() {
 
     buildDeck();
     shuffle();
     startGame()
     bank = 500; //STARTING AMOUNT
+
 }
 
 function buildDeck() {
@@ -255,4 +256,9 @@ function reduceAce(sum, aceCount, isYou) {
 
 export function getBank() {
     return bank;
+}
+
+export function setGambled(val) {
+
+    gambled = val;
 }

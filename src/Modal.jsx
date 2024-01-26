@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 import './App.css';
 import Backdrop from './Backdrop';
-import betting from './betting';
 import ContainerChips from "./ContainerChips";
+import { clear } from "./betting";
+import { allIn } from "./betting";
+import { half } from "./betting";
 
 const dropIn = {
   hidden: {
@@ -29,7 +31,7 @@ const dropIn = {
 const Modal = ({ handleClose, text }) => {
   // Run the betting function when the component mounts
   useEffect(() => {
-    betting();
+   
 
     // Clean up event listeners when the component unmounts
     return () => {
@@ -48,14 +50,14 @@ const Modal = ({ handleClose, text }) => {
           <div className="popup-container">
 
             <div className="button-container">
-                <ModalButton className="Half" label="Half"></ModalButton>
-                <ModalButton className="All-In" label="All In"></ModalButton>
-                <ModalButton className="Clear" label="Clear"></ModalButton>
+                <ModalButton className="Half" label="Half" onClick={half}></ModalButton>
+                <ModalButton className="All-In" label="All In" onClick={allIn}></ModalButton>
+                <ModalButton className="Clear" label="Clear" onClick={clear}></ModalButton>
             </div>
             
             <ContainerChips /> 
            
-            <div id = 'amount-to-bet' className='amount-to-bet'>500</div>
+            <div id = 'amount-to-bet' className='amount-to-bet'>0</div>
             <ModalButton
               className="Deal"
               label="Deal"

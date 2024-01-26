@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { updateBettingAmount } from './betting.jsx';
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -21,11 +22,13 @@ const item = {
   }
 };
 
-const Chip = ({ id }) => (
+const Chip = ({ id, value }) => (
   <motion.div
     className="chip"
     id={id}
     variants={item}
+    onClick={() => updateBettingAmount(value)}
+
   />
 );
 
@@ -37,7 +40,7 @@ const ContainerChips = () => (
     animate="visible"
   >
     {[1, 5, 25, 100, 500].map((value) => (
-      <Chip key={value} id={`Chip${value}`} />
+      <Chip key={value} id={`Chip${value}`} value={value} />
     ))}
   </motion.div>
 );
