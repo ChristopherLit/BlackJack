@@ -1,7 +1,7 @@
 import './Modal.jsx';
-import { getBank } from './blackjack.js';
-import { setGambled } from './blackjack.js';
-import { startEverything } from './blackjack.js';
+import { getBank } from './blackjack.jsx';
+import { setGambled } from './blackjack.jsx';
+import { startEverything } from './blackjack.jsx';
 
 let total = 0; //Make total equal to their betting amount
 
@@ -32,8 +32,6 @@ export function half() {
   }
 
   export function deal() {
-
-      
 
     if (total == 0) {
 

@@ -6,6 +6,7 @@ import ContainerChips from "./ContainerChips";
 import { clear } from "./betting";
 import { allIn } from "./betting";
 import { half } from "./betting";
+import { deal } from "./betting";
 
 const dropIn = {
   hidden: {
@@ -61,8 +62,12 @@ const Modal = ({ handleClose, text }) => {
             <ModalButton
               className="Deal"
               label="Deal"
-              onClick={handleClose}
+              onClick={() => {
+                handleClose();
+                deal();
+              }}
             ></ModalButton>
+
             <div style={{ padding: "10px", width: "80%", textAlign: "left", fontSize: "150%", color: "white" }}></div>
           </div>
         </motion.div>

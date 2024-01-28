@@ -13,7 +13,10 @@ function Board() {
   
   </div>
 
-  <div id="your-cards"></div>
+  <div id="your-cards">
+    
+
+  </div>
 
   <div className='dealer-score'>
 

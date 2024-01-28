@@ -1,4 +1,7 @@
-import myMessage from './Message';
+
+import Card from "./Card";
+import { createRoot } from 'react-dom/client';
+
 
 var dealerSum = 0;
 var yourSum = 0;
@@ -11,47 +14,35 @@ var deck;
 
 var canHit = true;
 
-let bank = 0;
+let bank = -1;
 let gambled = 0;
 
-
 export function startEverything() {
-
     buildDeck();
     shuffle();
-    startGame()
-    bank = 500; //STARTING AMOUNT
-
+    startGame();
 }
 
 function buildDeck() {
-
     let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
     let types = ["D", "S", "H", "C"];
     deck = [];
 
-    //Creating the deck (unshuffled)
+    // Creating the deck (unshuffled)
     for (let i = 0; i < types.length; i++) {
-
         for (let j = 0; j < values.length; j++) {
-
             deck.push(values[j] + "-" + types[i]);
         }
-
     }
-
 }
 
 function shuffle() {
-
     for (let i = deck.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * i);
         let temp = deck[i];
         deck[i] = deck[j];
         deck[j] = temp;
-
     }
-
 }
 
 function startGame() {
@@ -59,86 +50,60 @@ function startGame() {
     dealerSum += findValue(hidden);
     dealerAceCount += checkAce(hidden);
 
-    //Dealer stands on 17
-
-    let dealerContainer = document.getElementById("dealer-cards");
+    // Dealer stands on 17
     let dealerValueContainer = document.getElementById("dealer-value");
-    
-  
-        let firstCard = deck.pop();
-        let img = document.createElement("img");
-        img.src = "./src/assets/" + firstCard + ".png";
-        dealerSum += findValue(firstCard);
-        dealerAceCount += checkAce(firstCard);
 
-        img.style.flex = "0 0 auto";
+    let firstCard = deck.pop();
+    let imageSrc = `./src/assets/${firstCard}.png`;
+    dealerSum += findValue(firstCard);
+    dealerAceCount += checkAce(firstCard);
 
-        dealerContainer.appendChild(img);
-        
-        dealerValueContainer.textContent = findValue(firstCard);
-       
-  
+    addDealer(imageSrc);
 
-    let yourContainer = document.getElementById("your-cards");
+    dealerValueContainer.textContent = findValue(firstCard);
+
     let yourValueContainer = document.getElementById("your-value");
 
     for (let i = 0; i < 2; i++) {
-
         let theCard = deck.pop();
-        let img = document.createElement("img");
-        img.src = "./src/assets/" + theCard + ".png";
+        let imageSrc = `./src/assets/${theCard}.png`;
         yourSum += findValue(theCard);
         yourAceCount += checkAce(theCard);
-    
-        img.style.flex = "0 0 auto";
-    
-        yourContainer.appendChild(img);
-        }
-        
-        yourValueContainer.textContent = yourSum;
 
-        if (yourSum > 21) {
+        addYour(imageSrc);
+    }
 
-            yourSum = reduceAce(yourSum, yourAceCount, true);
-        }
+    yourValueContainer.textContent = yourSum;
 
-        document.getElementById("Hit").addEventListener("click", hit);
-        document.getElementById("Stand").addEventListener("click", stand);
-    
+    if (yourSum > 21) {
+        yourSum = reduceAce(yourSum, yourAceCount, true);
+    }
+
+    document.getElementById("Hit").addEventListener("click", hit);
+    document.getElementById("Stand").addEventListener("click", stand);
 }
 
 function findValue(card) {
-    
     let data = card.split("-");
     let value = data[0];
 
     if (isNaN(value)) {
-
         if (value == "A") {
-
             return 11;
         } else {
-
             return 10;
         }
-
-
-
     }
 
     return parseInt(value);
-
 }
 
 function checkAce(card) {
-
     if (card[0] == "A") {
-
         return 1;
     }
 
     return 0;
-
 }
 
 function hit() {
@@ -146,20 +111,14 @@ function hit() {
         return;
     }
 
-    let yourContainer = document.getElementById("your-cards");
-
     let theCard = deck.pop();
-    let img = document.createElement("img");
-    img.src = "./src/assets/" + theCard + ".png";
+    let imageSrc = `./src/assets/${theCard}.png`;
     yourSum += findValue(theCard);
     yourAceCount += checkAce(theCard);
 
-    img.style.flex = "0 0 auto";
-
-    yourContainer.appendChild(img);
+    addYour(imageSrc);
 
     if (yourSum > 21) {
-
         yourSum = reduceAce(yourSum, yourAceCount, true);
     }
 
@@ -169,96 +128,104 @@ function hit() {
     }
 
     let yourValueContainer = document.getElementById("your-value");
-        yourValueContainer.textContent = yourSum;
+    yourValueContainer.textContent = yourSum;
 }
 
-
 function stand() {
-
     canHit = false;
 
-    //Dealer stands on 17
-
-    let dealerContainer = document.getElementById("dealer-cards");
+    // Dealer stands on 17
     while (dealerSum < 17) {
         let theCard = deck.pop();
-        let img = document.createElement("img");
-        img.src = "./src/assets/" + theCard + ".png";
+        let imageSrc = `./src/assets/${theCard}.png`;
         dealerSum += findValue(theCard);
         dealerAceCount += checkAce(theCard);
 
-        img.style.flex = "0 0 auto";
-
-        dealerContainer.appendChild(img);
-        }
-
-        if (dealerSum > 21) {
-
-            dealerSum = reduceAce(dealerSum, dealerAceCount, false);
-
-        }
-
-        console.log(dealerSum);
-
-    document.getElementById("hidden").src = "./src/assets/" + hidden + ".png";
-
-    let dealerValueContainer = document.getElementById("dealer-value");
-        dealerValueContainer.textContent = dealerSum;
-
-    //CAN ASSUME YOUR SUM IS 21 AND BELOW
-
-    if (dealerSum > 21) { //You win
-
-        bank += gambled * 2;
-
-    } else if (yourSum < dealerSum) { //Dealer wins
-
-        bank = bank - gambled;
-
-    } else if (yourSum > dealerSum) { //You win
-
-        bank += gambled * 2;
-
-        //Push
-    } else {  //Tie
-
-
-
-
-
+        addDealer(imageSrc);
     }
 
+    if (dealerSum > 21) {
+        dealerSum = reduceAce(dealerSum, dealerAceCount, false);
+    }
 
+    
 
+    let dealerValueContainer = document.getElementById("dealer-value");
+    dealerValueContainer.textContent = dealerSum;
+
+    // CAN ASSUME YOUR SUM IS 21 AND BELOW
+    if (dealerSum > 21) {
+        // You win
+        bank += gambled * 2;
+    } else if (yourSum < dealerSum) {
+        // Dealer wins
+        bank = bank - gambled;
+    } else if (yourSum > dealerSum) {
+        // You win
+        bank += gambled * 2;
+        // Push
+    } else {
+        // Tie
+    }
+
+    gambled = 0;
 }
 
 function reduceAce(sum, aceCount, isYou) {
-
     while (sum > 21 && aceCount > 0) {
-
         sum = sum - 10;
         aceCount = aceCount - 1;
 
         if (isYou == true) {
-
             yourAceCount = aceCount;
-
         } else {
-
             dealerAceCount = aceCount;
         }
-
     }
 
     return sum;
-
 }
 
 export function getBank() {
+    if (bank == -1) {
+        bank = 500;
+    }
+
     return bank;
 }
 
 export function setGambled(val) {
-
     gambled = val;
 }
+
+const addYour = (imgUrl) => {
+    const yourCardsContainer = document.getElementById("your-cards");
+
+    let root = yourCardsContainer._reactRootContainer;
+    if (!root) {
+        root = createRoot(yourCardsContainer);
+        yourCardsContainer._reactRootContainer = root; // Store the root on the container
+    }
+
+    const cardElement = (
+        <Card imageUrl={imgUrl} />
+    );
+
+    root.render(cardElement);
+};
+
+const addDealer = (imgUrl) => {
+    const dealerCardsContainer = document.getElementById("dealer-cards");
+
+    let root = dealerCardsContainer._reactRootContainer;
+    if (!root) {
+        root = createRoot(dealerCardsContainer);
+        dealerCardsContainer._reactRootContainer = root; // Store the root on the container
+    }
+
+    const cardElement = (
+        <Card imageUrl={imgUrl} />
+    );
+
+    root.render(cardElement);
+};

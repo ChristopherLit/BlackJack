@@ -210,6 +210,10 @@
   position: absolute;
   z-index: 2;
   bottom: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+  
+
 }
 
 
@@ -229,7 +233,10 @@
   position: absolute;
   z-index: 2;
   bottom: 25%;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
 
 #your-cards img {
   height: 10%;
