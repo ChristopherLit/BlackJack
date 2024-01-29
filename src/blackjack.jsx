@@ -175,11 +175,12 @@ function stand() {
 
     setTimeout(() => {
         swapBack('./src/assets/BACK.png', `./src/assets/${hidden}.png`);
-    }, 1);
+    }, 0.1);
     
 
+    setTimeout(() => {
     // Dealer stands on 17
-    while (dealerSum < 17) {
+    if (dealerSum < 17) {
        
         let theCard = deck.pop();
         let imageSrc = `./src/assets/${theCard}.png`;
@@ -188,9 +189,163 @@ function stand() {
 
         console.log(theCard);
 
+        setTimeout(() => {
+
         addDealer(imageSrc);
+
+    }, 2);
    
     }
+
+}, 1);
+
+setTimeout(() => {
+    // Dealer stands on 17
+    if (dealerSum < 17) {
+       
+        let theCard = deck.pop();
+        let imageSrc = `./src/assets/${theCard}.png`;
+        dealerSum += findValue(theCard);
+        dealerAceCount += checkAce(theCard);
+
+        console.log(theCard);
+
+        setTimeout(() => {
+
+            addDealer(imageSrc);
+    
+        }, 4);
+   
+    }
+
+}, 3);
+
+setTimeout(() => {
+    // Dealer stands on 17
+    if (dealerSum < 17) {
+       
+        let theCard = deck.pop();
+        let imageSrc = `./src/assets/${theCard}.png`;
+        dealerSum += findValue(theCard);
+        dealerAceCount += checkAce(theCard);
+
+        console.log(theCard);
+
+        setTimeout(() => {
+
+            addDealer(imageSrc);
+    
+        }, 6);
+   
+    }
+
+}, 5);
+
+setTimeout(() => {
+    // Dealer stands on 17
+    if (dealerSum < 17) {
+       
+        let theCard = deck.pop();
+        let imageSrc = `./src/assets/${theCard}.png`;
+        dealerSum += findValue(theCard);
+        dealerAceCount += checkAce(theCard);
+
+        console.log(theCard);
+
+        setTimeout(() => {
+
+            addDealer(imageSrc);
+    
+        }, 8);
+    }
+
+}, 7);
+
+setTimeout(() => {
+    // Dealer stands on 17
+    if (dealerSum < 17) {
+       
+        let theCard = deck.pop();
+        let imageSrc = `./src/assets/${theCard}.png`;
+        dealerSum += findValue(theCard);
+        dealerAceCount += checkAce(theCard);
+
+        console.log(theCard);
+
+        setTimeout(() => {
+
+            addDealer(imageSrc);
+    
+        }, 10);
+   
+    }
+
+}, 9);
+
+setTimeout(() => {
+    // Dealer stands on 17
+    if (dealerSum < 17) {
+       
+        let theCard = deck.pop();
+        let imageSrc = `./src/assets/${theCard}.png`;
+        dealerSum += findValue(theCard);
+        dealerAceCount += checkAce(theCard);
+
+        console.log(theCard);
+
+        setTimeout(() => {
+
+            addDealer(imageSrc);
+    
+        }, 12);
+   
+    }
+
+}, 11);
+
+setTimeout(() => {
+    // Dealer stands on 17
+    if (dealerSum < 17) {
+       
+        let theCard = deck.pop();
+        let imageSrc = `./src/assets/${theCard}.png`;
+        dealerSum += findValue(theCard);
+        dealerAceCount += checkAce(theCard);
+
+        console.log(theCard);
+
+        setTimeout(() => {
+
+            addDealer(imageSrc);
+    
+        }, 14);
+   
+    }
+
+}, 13);
+
+setTimeout(() => {
+    // Dealer stands on 17
+    if (dealerSum < 17) {
+       
+        let theCard = deck.pop();
+        let imageSrc = `./src/assets/${theCard}.png`;
+        dealerSum += findValue(theCard);
+        dealerAceCount += checkAce(theCard);
+
+        console.log(theCard);
+
+        setTimeout(() => {
+
+            addDealer(imageSrc);
+    
+        }, 16);
+   
+    }
+
+}, 15);
+
+    setTimeout(() => {
 
     if (dealerSum > 21) {
         dealerSum = reduceAce(dealerSum, dealerAceCount, false);
@@ -218,8 +373,10 @@ function stand() {
 
     gambled = 0;
 
+}, 30);
+
 }
-stopStand = true;
+    stopStand = true;
 
 
 }
