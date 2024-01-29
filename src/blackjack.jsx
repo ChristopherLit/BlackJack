@@ -166,6 +166,19 @@ function hit() {
 
     let yourValueContainer = document.getElementById("your-value");
     yourValueContainer.textContent = yourSum;
+
+    //YOU LOST
+    if (yourSum > 21) {
+
+        setTimeout(() => {
+            swapBack('./src/assets/BACK.png', `./src/assets/${hidden}.png`);
+        }, 0.1);
+
+        bank = bank - gambled;
+
+        stopStand = true;
+
+    }
 }
 
 function stand() {
