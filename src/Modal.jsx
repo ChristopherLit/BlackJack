@@ -29,7 +29,7 @@ const dropIn = {
   },
 };
 
-const Modal = ({ handleClose, text }) => {
+const Modal = ({ handleClose }) => {
   // Run the betting function when the component mounts
   useEffect(() => {
    
@@ -63,8 +63,15 @@ const Modal = ({ handleClose, text }) => {
               className="Deal"
               label="Deal"
               onClick={() => {
-                handleClose();
-                deal();
+                
+                deal((result) => {
+                  if (result == true) {
+
+                    handleClose();
+                    
+                  }
+                });
+                
               }}
             ></ModalButton>
 

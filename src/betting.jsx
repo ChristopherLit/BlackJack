@@ -3,6 +3,7 @@ import { getBank } from './blackjack.jsx';
 import { setGambled } from './blackjack.jsx';
 import { startEverything } from './blackjack.jsx';
 
+
 let total = 0; //Make total equal to their betting amount
 
 export function half() {
@@ -31,7 +32,7 @@ export function half() {
 
   }
 
-  export function deal() {
+  export function deal(callback) {
 
     if (total == 0) {
 
@@ -39,10 +40,8 @@ export function half() {
     } else {
 
       setGambled(total);
-
-
-
       startEverything();
+      return callback(true);
       
     }
     

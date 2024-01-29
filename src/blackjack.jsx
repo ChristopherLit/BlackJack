@@ -1,8 +1,3 @@
-
-import Card from "./Card";
-import { createRoot } from 'react-dom/client';
-
-
 var dealerSum = 0;
 var yourSum = 0;
 
@@ -16,6 +11,10 @@ var canHit = true;
 
 let bank = -1;
 let gambled = 0;
+
+let addYour;
+let addDealer;
+let swapBack;
 
 export function startEverything() {
     buildDeck();
@@ -50,9 +49,13 @@ function startGame() {
     dealerSum += findValue(hidden);
     dealerAceCount += checkAce(hidden);
 
+    addDealer('./src/assets/BACK.png');
+        
+
     // Dealer stands on 17
     let dealerValueContainer = document.getElementById("dealer-value");
 
+    setTimeout(() => {
     let firstCard = deck.pop();
     let imageSrc = `./src/assets/${firstCard}.png`;
     dealerSum += findValue(firstCard);
@@ -61,19 +64,46 @@ function startGame() {
     addDealer(imageSrc);
 
     dealerValueContainer.textContent = findValue(firstCard);
+}, 1);
+
+    
+
 
     let yourValueContainer = document.getElementById("your-value");
 
-    for (let i = 0; i < 2; i++) {
+    
         let theCard = deck.pop();
         let imageSrc = `./src/assets/${theCard}.png`;
         yourSum += findValue(theCard);
         yourAceCount += checkAce(theCard);
+        
 
-        addYour(imageSrc);
-    }
+        console.log(imageSrc);
 
+        
+            addYour(imageSrc);
+        
+            setTimeout(() => {
+
+                theCard = deck.pop();
+                imageSrc = `./src/assets/${theCard}.png`;
+                yourSum += findValue(theCard);
+               yourAceCount += checkAce(theCard);
+       
+               console.log(imageSrc);
+
+               addYour(imageSrc);
+                
+              }, 1);
+          
+
+        
+      
+    
+              setTimeout(() => {
     yourValueContainer.textContent = yourSum;
+
+}, 2);
 
     if (yourSum > 21) {
         yourSum = reduceAce(yourSum, yourAceCount, true);
@@ -81,6 +111,8 @@ function startGame() {
 
     document.getElementById("Hit").addEventListener("click", hit);
     document.getElementById("Stand").addEventListener("click", stand);
+
+
 }
 
 function findValue(card) {
@@ -122,7 +154,7 @@ function hit() {
         yourSum = reduceAce(yourSum, yourAceCount, true);
     }
 
-    if (reduceAce(yourSum, yourAceCount) > 21) {
+    if (reduceAce(yourSum, yourAceCount) >= 21) {
         canHit = false;
         console.log("out");
     }
@@ -134,14 +166,21 @@ function hit() {
 function stand() {
     canHit = false;
 
+    setTimeout(() => {
+        swapBack('./src/assets/BACK.png', `./src/assets/${hidden}.png`);
+    }, 1);
+    
+
     // Dealer stands on 17
     while (dealerSum < 17) {
+       
         let theCard = deck.pop();
         let imageSrc = `./src/assets/${theCard}.png`;
         dealerSum += findValue(theCard);
         dealerAceCount += checkAce(theCard);
 
         addDealer(imageSrc);
+   
     }
 
     if (dealerSum > 21) {
@@ -198,34 +237,15 @@ export function setGambled(val) {
     gambled = val;
 }
 
-const addYour = (imgUrl) => {
-    const yourCardsContainer = document.getElementById("your-cards");
+export const AnotherFileFunctionYour = (addDivtoYourContainer) => {
 
-    let root = yourCardsContainer._reactRootContainer;
-    if (!root) {
-        root = createRoot(yourCardsContainer);
-        yourCardsContainer._reactRootContainer = root; // Store the root on the container
-    }
+    addYour = addDivtoYourContainer;
 
-    const cardElement = (
-        <Card imageUrl={imgUrl} />
-    );
+  };
 
-    root.render(cardElement);
-};
+  export const AnotherFileFunctionDealer = (addDivtoDealerContainer, replaceImageFunc) => {
+    
+    addDealer = addDivtoDealerContainer;
+    swapBack = replaceImageFunc;
 
-const addDealer = (imgUrl) => {
-    const dealerCardsContainer = document.getElementById("dealer-cards");
-
-    let root = dealerCardsContainer._reactRootContainer;
-    if (!root) {
-        root = createRoot(dealerCardsContainer);
-        dealerCardsContainer._reactRootContainer = root; // Store the root on the container
-    }
-
-    const cardElement = (
-        <Card imageUrl={imgUrl} />
-    );
-
-    root.render(cardElement);
-};
+  };

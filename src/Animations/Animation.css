@@ -1,0 +1,23 @@
+.dealer-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    bottom: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    
+  
+  }  
+  
+  .your-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    bottom: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+  }

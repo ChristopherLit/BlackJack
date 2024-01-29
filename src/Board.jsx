@@ -1,4 +1,5 @@
-import Buttons from './Buttons';
+import DealerContainer from "./Animations/DealerContainer";
+import YourContainer from "./Animations/YourContainer";
 
 function Board() {
 
@@ -8,15 +9,11 @@ function Board() {
 
 <img id="GameBoard" src="./src/assets/Table.png" alt="Game board" />
 
-  <div id="dealer-cards">
-    <img id="hidden" src="./src/assets/BACK.png"/>
-  
-  </div>
+    <DealerContainer>
+        <img id="hidden" src="./src/assets/BACK.png"/>
+    </DealerContainer>
 
-  <div id="your-cards">
-    
-
-  </div>
+  <YourContainer></YourContainer>
 
   <div className='dealer-score'>
 

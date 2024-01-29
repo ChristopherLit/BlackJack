@@ -203,50 +203,6 @@
   background: var(--gradient)
 }
 
-#dealer-cards {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  z-index: 2;
-  bottom: 65%;
-  left: 50%;
-  transform: translateX(-50%);
-  
-
-}
-
-
-#dealer-cards img {
-  height: 10%;
-  width: 7%;
-  margin: 0.5%;
-  border-radius: 2%;
-  position: relative;
-}
-
-
-#your-cards {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  z-index: 2;
-  bottom: 25%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-
-#your-cards img {
-  height: 10%;
-  width: 7%;
-  margin: 0.5%;
-  border-radius: 2%;
-  
-  position: relative;
-}
-
 .board {
   position: absolute;
   width: 80%; 
