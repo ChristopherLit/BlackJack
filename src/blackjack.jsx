@@ -16,7 +16,12 @@ let addYour;
 let addDealer;
 let swapBack;
 
+let stopStand;
+
 export function startEverything() {
+
+    stopStand = false;
+
     buildDeck();
     shuffle();
     startGame();
@@ -164,6 +169,8 @@ function hit() {
 }
 
 function stand() {
+
+    if (stopStand == false) {
     canHit = false;
 
     setTimeout(() => {
@@ -178,6 +185,8 @@ function stand() {
         let imageSrc = `./src/assets/${theCard}.png`;
         dealerSum += findValue(theCard);
         dealerAceCount += checkAce(theCard);
+
+        console.log(theCard);
 
         addDealer(imageSrc);
    
@@ -208,6 +217,11 @@ function stand() {
     }
 
     gambled = 0;
+
+}
+stopStand = true;
+
+
 }
 
 function reduceAce(sum, aceCount, isYou) {
