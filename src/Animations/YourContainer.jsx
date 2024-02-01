@@ -15,7 +15,11 @@ const YourContainer = () => {
       setDivs([...divs, newDiv]);
     };
 
-  AnotherFileFunctionYour(addDivtoYourContainer);
+    const clearContainer = () => {
+      setDivs([]);
+    };
+
+  AnotherFileFunctionYour(addDivtoYourContainer, clearContainer);
   
 
   return (

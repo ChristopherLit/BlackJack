@@ -1,6 +1,7 @@
 import DealerContainer from "./Animations/DealerContainer";
 import YourContainer from "./Animations/YourContainer";
 
+
 function Board() {
 
     return (
@@ -14,6 +15,8 @@ function Board() {
     </DealerContainer>
 
   <YourContainer></YourContainer>
+
+  
 
   <div className='dealer-score'>
 

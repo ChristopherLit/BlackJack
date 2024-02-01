@@ -4,6 +4,9 @@ import './App.css';
 import Modal from './Modal';
 import Board from './Board';
 import Buttons from './Buttons';
+import ShowScreen from "./showScreen";
+
+
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -12,6 +15,7 @@ function App() {
 
   return (
     <div id='full-layout' className='full-layout'>
+
       <div className='game-layout'>
         <div className='title'>
           <h1>BlackJack</h1>
@@ -19,6 +23,9 @@ function App() {
 
         <Board></Board>
         <Buttons></Buttons>
+        <ShowScreen></ShowScreen>
+        
+        
 
         <button
           onClick={() => (modalOpen ? close() : open())}

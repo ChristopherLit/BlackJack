@@ -22,8 +22,13 @@ const DealerContainer = () => {
         );
         setDivs(updatedDivs);
     };
+
+    const clearContainer = () => {
+      setDivs([]);
+    };
+  
     
-  AnotherFileFunctionDealer(addDivtoDealerContainer, replaceImageInContainer); // Pass the function to the other file
+  AnotherFileFunctionDealer(addDivtoDealerContainer, replaceImageInContainer, clearContainer); 
 
   return (
     <div>

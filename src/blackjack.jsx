@@ -1,3 +1,5 @@
+
+
 var dealerSum = 0;
 var yourSum = 0;
 
@@ -15,8 +17,11 @@ let gambled = 0;
 let addYour;
 let addDealer;
 let swapBack;
+let clearYour;
+let clearDealer;
 
 let stopStand;
+let popup;
 
 export function startEverything() {
 
@@ -178,7 +183,18 @@ function hit() {
 
         stopStand = true;
 
-    }
+        let dealerValueContainer = document.getElementById("dealer-value");
+    dealerValueContainer.textContent = dealerSum;
+
+    const button = document.getElementById('myButton');
+    console.log()
+
+    popup("You lose!");
+
+        restart();
+
+  
+}
 }
 
 function stand() {
@@ -373,15 +389,23 @@ setTimeout(() => {
     if (dealerSum > 21) {
         // You win
         bank += gambled * 2;
+       //Make screen animation appear here
+        restart();
     } else if (yourSum < dealerSum) {
         // Dealer wins
         bank = bank - gambled;
+        //Make screen animation appear here
+        restart();
     } else if (yourSum > dealerSum) {
         // You win
         bank += gambled * 2;
+        //Make screen animation appear here
+        restart();
         // Push
     } else {
         // Tie
+        //Make screen animation appear here
+        restart();
     }
 
     gambled = 0;
@@ -421,15 +445,39 @@ export function setGambled(val) {
     gambled = val;
 }
 
-export const AnotherFileFunctionYour = (addDivtoYourContainer) => {
+export const AnotherFileFunctionYour = (addDivtoYourContainer, clearContainer) => {
 
     addYour = addDivtoYourContainer;
+    clearYour = clearContainer;
 
   };
 
-  export const AnotherFileFunctionDealer = (addDivtoDealerContainer, replaceImageFunc) => {
+  export const AnotherFileFunctionDealer = (addDivtoDealerContainer, replaceImageFunc, clearContainer) => {
+    
     
     addDealer = addDivtoDealerContainer;
     swapBack = replaceImageFunc;
+    clearDealer = clearContainer;
 
   };
+
+  function restart() {
+
+    let yourValueContainer = document.getElementById("your-value");
+    yourValueContainer.textContent = "";
+
+    let dealerValueContainer = document.getElementById("dealer-value");
+    dealerValueContainer.textContent = "";
+
+    clearYour();
+    clearDealer();
+
+  }
+
+  export const circleAnimation = (showAnimation) => {
+    
+    
+    popup = showAnimation;
+
+  }
+

@@ -13,7 +13,7 @@
   height: 100vh;
   overflow-x: hidden;
   overflow-y: hidden;
-  text-align: center;
+  text-align: left;
 
 
 }
@@ -34,6 +34,7 @@
   background: -webkit-linear-gradient(0deg, hsla(219, 34%, 30%, 1) 9%, hsla(223, 38%, 18%, 1) 100%);
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#324465", endColorstr="#1D2740", GradientType=1 );
   border-radius: 80px;
+
   
 }
 
@@ -53,12 +54,17 @@
   height: 55%;
   position: absolute;
   top: 50%; 
-  right: 50%; 
+  right: 50%;
+  transform: translate(50%, -50%);
   font-weight: 550;
   outline: none;
   z-index: 2;
   font-size: 130%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 
 
 
@@ -87,6 +93,9 @@
   outline: none;
   z-index: 2;
   font-size: 130%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Stand:active,
@@ -415,10 +424,8 @@
   z-index: 2;
   font-weight: 150;
 
-
-
-
 }
+
 
 
 
