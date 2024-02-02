@@ -20,26 +20,13 @@ let clearDealer;
 
 let stopStand;
 let popup;
+let showMenu;
 
 
 
 window.onload = function () {
 
-    setTimeout(() => {
-
-        // Find the button by its id
-    const openModalButton = document.getElementById('openModal');
-  
-    // Check if the button exists
-    if (openModalButton) {
-      // Simulate a click on the button
-      openModalButton.click();
-    } else {
-      console.error("Button with id 'openModal' not found");
-    }
-  
-
-    }, 750);
+    showMenu("BlackJack");
 
 }
 
@@ -48,6 +35,7 @@ window.onload = function () {
 export function startEverything() {
     
     stopStand = false;
+ 
 
     buildDeck();
     shuffle();
@@ -214,17 +202,9 @@ function hit() {
 
     setTimeout(() => {
 
-        const openModalButton = document.getElementById('openModal');
-  
-        // Check if the button exists
-        if (openModalButton) {
-          // Simulate a click on the button
-          openModalButton.click();
-        } else {
-          console.error("Button with id 'openModal' not found");
-        }
+        openTheModal();
     
-            restart();
+        restart();
 
 
     }, 2800);
@@ -450,17 +430,9 @@ setTimeout(() => {
 
     setTimeout(() => {
 
-        const openModalButton = document.getElementById('openModal');
-  
-        // Check if the button exists
-        if (openModalButton) {
-          // Simulate a click on the button
-          openModalButton.click();
-        } else {
-          console.error("Button with id 'openModal' not found");
-        }
+        openTheModal();
     
-            restart();
+        restart();
 
 
     }, 2800);
@@ -542,10 +514,30 @@ export const AnotherFileFunctionYour = (addDivtoYourContainer, clearContainer) =
 
   }
 
+  function openTheModal() {
+
+    const openModalButton = document.getElementById('openModal');
+  
+    // Check if the button exists
+    if (openModalButton) {
+      // Simulate a click on the button
+      openModalButton.click();
+    } else {
+      console.error("Button with id 'openModal' not found");
+    }
+
+  }
+
   export const circleAnimation = (showAnimation) => {
     
     
     popup = showAnimation;
+
+  }
+
+  export const showTheMenu = (menu) => {
+
+    showMenu = menu;
 
   }
 

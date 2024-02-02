@@ -4,6 +4,7 @@ import './App.css';
 import Modal from './Modal';
 import Board from './Board';
 import Buttons from './Buttons';
+import Menu from './Menu';
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -20,6 +21,8 @@ function App() {
 
         <Board></Board>
         <Buttons></Buttons>
+        <Menu></Menu>
+        
         
         
         

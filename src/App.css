@@ -14,6 +14,7 @@
   overflow-x: hidden;
   overflow-y: hidden;
   text-align: left;
+  
 
 
 }
@@ -114,6 +115,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 130%;
 
 
 }
@@ -131,7 +133,7 @@
   margin-right: 10px; 
   width: 4vw;
   height: 3.2vh;
-  font-size: 75%;
+  font-size: 100%;
   
 }
 
@@ -144,7 +146,7 @@
     margin-right: 10px; 
     width: 4vw;
     height: 3.2vh;
-    font-size: 75%;
+    font-size: 100%;
  
   
 }
@@ -168,7 +170,7 @@
   margin-right: 10px;
   width: 4vw;
   height: 3.2vh;
-  font-size: 75%;
+  font-size: 100%;
 
 }
 
@@ -442,19 +444,19 @@
 
 .balance {
   position: absolute;
-  top: 5%; /* Adjust the top value as needed */
-  left: 5%; /* Adjust the left value as needed */
+  top: 5%;
+  left: 5%; 
   color: white;
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   z-index: 2;
-  font-weight: 150;
+  font-weight: 120;
 }
 
 
 
 .menu {
-  width: 71%;
-  height: 91%; 
+  width: 100%;
+  height: 100%; 
   margin: auto;
   display: flex;
   flex-direction: column; 
@@ -468,8 +470,49 @@
   background: -webkit-linear-gradient(0deg, hsla(219, 34%, 30%, 1) 9%, hsla(223, 38%, 18%, 1) 100%);
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#324465", endColorstr="#1D2740", GradientType=1 );
   border-radius: 80px;
-
+  z-index: 8;
   
 }
+
+.textInMenu {
+  position: absolute;
+  top: 33.33%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.5vw;
+  z-index: 2;
+  font-weight: 500;
+}
+
+.Start {
+  background: hsla(120, 40%, 56%, 1);
+  background: radial-gradient(circle, hsla(120, 40%, 56%, 1) 0%, hsla(122, 39%, 49%, 1) 100%);
+  background: -moz-radial-gradient(circle, hsla(120, 40%, 56%, 1) 0%, hsla(122, 39%, 49%, 1) 100%);
+  background: -webkit-radial-gradient(circle, hsla(120, 40%, 56%, 1) 0%, hsla(122, 39%, 49%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#64BC64", endColorstr="#4CAF50", GradientType=1 );
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  margin-right: 10px;
+  width: 10%;
+  height: 8%;
+  position: absolute;
+  bottom: 15%;
+  left: 45%;
+
+  font-weight: 550;
+  outline: none;
+  z-index: 2;
+  font-size: 130%;
+ 
+}
+
+.Start:active,
+.Start:focus {
+  outline: none;
+}
+
+
 
 
