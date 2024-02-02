@@ -23,7 +23,7 @@ function App() {
 
         <Board></Board>
         <Buttons></Buttons>
-        <ShowScreen></ShowScreen>
+        
         
         
 
