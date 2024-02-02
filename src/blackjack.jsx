@@ -1,5 +1,3 @@
-
-
 var dealerSum = 0;
 var yourSum = 0;
 
@@ -23,13 +21,39 @@ let clearDealer;
 let stopStand;
 let popup;
 
-export function startEverything() {
 
+
+window.onload = function () {
+
+    setTimeout(() => {
+
+        // Find the button by its id
+    const openModalButton = document.getElementById('openModal');
+  
+    // Check if the button exists
+    if (openModalButton) {
+      // Simulate a click on the button
+      openModalButton.click();
+    } else {
+      console.error("Button with id 'openModal' not found");
+    }
+  
+
+    }, 750);
+
+}
+
+    
+
+export function startEverything() {
+    
     stopStand = false;
 
     buildDeck();
     shuffle();
     startGame();
+
+    
 }
 
 function buildDeck() {
@@ -76,9 +100,6 @@ function startGame() {
     dealerValueContainer.textContent = findValue(firstCard);
 }, 1);
 
-    
-
-
     let yourValueContainer = document.getElementById("your-value");
 
     
@@ -87,7 +108,6 @@ function startGame() {
         yourSum += findValue(theCard);
         yourAceCount += checkAce(theCard);
         
-
         console.log(imageSrc);
 
         
@@ -121,8 +141,8 @@ function startGame() {
 
     document.getElementById("Hit").addEventListener("click", hit);
     document.getElementById("Stand").addEventListener("click", stand);
-
-
+    
+    
 }
 
 function findValue(card) {
@@ -149,6 +169,7 @@ function checkAce(card) {
 }
 
 function hit() {
+
     if (canHit === false) {
         return;
     }
@@ -189,9 +210,26 @@ function hit() {
     const button = document.getElementById('myButton');
     console.log()
 
-    popup("You lose!");
+    popup("You Lose!");
 
-        restart();
+    setTimeout(() => {
+
+        const openModalButton = document.getElementById('openModal');
+  
+        // Check if the button exists
+        if (openModalButton) {
+          // Simulate a click on the button
+          openModalButton.click();
+        } else {
+          console.error("Button with id 'openModal' not found");
+        }
+    
+            restart();
+
+
+    }, 2800);
+    
+   
 
   
 }
@@ -385,30 +423,49 @@ setTimeout(() => {
     let dealerValueContainer = document.getElementById("dealer-value");
     dealerValueContainer.textContent = dealerSum;
 
+    bank = bank - gambled;
+
     // CAN ASSUME YOUR SUM IS 21 AND BELOW
     if (dealerSum > 21) {
         // You win
         bank += gambled * 2;
-       //Make screen animation appear here
-        restart();
+        popup("You Won $" + gambled * 2 + "!");
+        
     } else if (yourSum < dealerSum) {
         // Dealer wins
-        bank = bank - gambled;
-        //Make screen animation appear here
-        restart();
+        popup("You Lose!");
+        
     } else if (yourSum > dealerSum) {
         // You win
         bank += gambled * 2;
-        //Make screen animation appear here
-        restart();
+        popup("You Won $" + gambled * 2 + "!");
+       
         // Push
     } else {
         // Tie
-        //Make screen animation appear here
-        restart();
+        popup("Push!");
+        bank = bank + gambled;
+       
     }
 
-    gambled = 0;
+    setTimeout(() => {
+
+        const openModalButton = document.getElementById('openModal');
+  
+        // Check if the button exists
+        if (openModalButton) {
+          // Simulate a click on the button
+          openModalButton.click();
+        } else {
+          console.error("Button with id 'openModal' not found");
+        }
+    
+            restart();
+
+
+    }, 2800);
+
+   
 
 }, 30);
 
@@ -471,6 +528,17 @@ export const AnotherFileFunctionYour = (addDivtoYourContainer, clearContainer) =
 
     clearYour();
     clearDealer();
+
+    dealerSum = 0;
+    yourSum = 0;
+    dealerAceCount = 0;
+    yourAceCount = 0;
+
+    canHit = true;
+
+    gambled = 0;
+
+    
 
   }
 

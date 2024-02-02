@@ -7,6 +7,7 @@ import { clear } from "./betting";
 import { allIn } from "./betting";
 import { half } from "./betting";
 import { deal } from "./betting";
+import { getBank } from "./blackjack";
 
 const dropIn = {
   hidden: {
@@ -55,6 +56,8 @@ const Modal = ({ handleClose }) => {
                 <ModalButton className="All-In" label="All In" onClick={allIn}></ModalButton>
                 <ModalButton className="Clear" label="Clear" onClick={clear}></ModalButton>
             </div>
+
+            <div className='balance'>Balance: {getBank()}</div>
             
             <ContainerChips /> 
            

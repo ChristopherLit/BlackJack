@@ -1,5 +1,6 @@
 import DealerContainer from "./Animations/DealerContainer";
 import YourContainer from "./Animations/YourContainer";
+import ShowScreen from "./showScreen";
 
 
 function Board() {
@@ -15,6 +16,7 @@ function Board() {
     </DealerContainer>
 
   <YourContainer></YourContainer>
+  <ShowScreen></ShowScreen>
 
   
 

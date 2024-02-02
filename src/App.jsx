@@ -4,9 +4,6 @@ import './App.css';
 import Modal from './Modal';
 import Board from './Board';
 import Buttons from './Buttons';
-import ShowScreen from "./showScreen";
-
-
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -26,16 +23,19 @@ function App() {
         
         
         
+        
 
         <button
+        id='openModal'
           onClick={() => (modalOpen ? close() : open())}
           style={{
             position: 'fixed',
-            bottom: '30px',
-            right: '30px',
+            bottom: '0px',
+            right: '99999px',
+            zIndex: '',
           }}
         >
-          test
+          
         </button>
 
         <AnimatePresence
