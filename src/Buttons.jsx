@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { playDeal } from './Audio';
+
 
 function Buttons() {
 
@@ -10,7 +12,7 @@ function Buttons() {
         id="Hit"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.88 }}
-        onClick={() => null}
+        onClick={() => { null; playDeal();}}
       >
         Hit
       </motion.button>
@@ -20,7 +22,7 @@ function Buttons() {
       id="Stand"
       whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.88 }}
-        onClick={() => null}
+        onClick={() => { null}}
         >
       Stand
       </motion.button>

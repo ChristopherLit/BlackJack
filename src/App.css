@@ -35,8 +35,9 @@
   background: -webkit-linear-gradient(0deg, hsla(219, 34%, 30%, 1) 9%, hsla(223, 38%, 18%, 1) 100%);
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#324465", endColorstr="#1D2740", GradientType=1 );
   border-radius: 80px;
-
   
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
 }
 
 
@@ -205,7 +206,7 @@
   align-items: center;
   justify-content: center;
   overflow-y: hidden;
-  border-radius: 50px;
+  border-radius: 80px;
 
 }
 
@@ -226,13 +227,13 @@
 }
 
 #GameBoard {
-  width: 100%;
-  height: 100%;
+  width: 105%;
   object-fit: cover;
   position: relative;
   top: 0;
   left: 0;
   z-index: 1;
+
 }
 
 
@@ -513,6 +514,25 @@
   outline: none;
 }
 
+.Sound-icon {
+  background-image: url('./assets/Sound Icon.png');
+  width: 3.5%;
+  height: 5%;
+  border-radius: 35%;
+ background-color: #283a57;
 
 
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  margin-top: 0;
+  margin-right: 0;
+  z-index: 3;
+}
+
+
+.Sound-icon:active,
+.Sound-icon:focus {
+  outline: none;
+}
 

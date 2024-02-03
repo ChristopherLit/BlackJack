@@ -2,6 +2,9 @@ import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import { showTheMenu, startEverything } from "./blackjack";
 import './App.css';
+import { openTheModal } from './blackjack';
+import { setBank, getBank} from './blackjack';
+import { playSound } from './Audio';
 
 const Menu = () => {
     const [showBox, setShowBox] = useState(false);
@@ -15,9 +18,10 @@ const Menu = () => {
     showTheMenu(showMenu);
 
     const handleStartClick = () => {
-        // Call the function to start everything
-        startEverything();
 
+        openTheModal();
+        console.log(getBank());
+      
         // Set showBox to false to trigger the exit animation
         setShowBox(false);
     };
@@ -42,7 +46,7 @@ const Menu = () => {
                 className='Start'
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.88 }}
-                onClick={handleStartClick}
+                onClick={() => { handleStartClick(); playSound(); }}
             >
                 Start
             </motion.button>

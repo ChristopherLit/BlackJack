@@ -2,8 +2,6 @@ import './Modal.jsx';
 import { getBank } from './blackjack.jsx';
 import { setGambled } from './blackjack.jsx';
 import { startEverything } from './blackjack.jsx';
-import { setBank } from './blackjack.jsx';
-
 
 let total = 0; //Make total equal to their betting amount
 

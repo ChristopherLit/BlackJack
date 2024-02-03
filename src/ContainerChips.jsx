@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { updateBettingAmount } from './betting.jsx';
 import { getBank } from './blackjack.jsx';
 import { getTotal } from './betting.jsx';
+import { playChip } from "./Audio.jsx";
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -41,7 +42,7 @@ const Chip = ({ id, value }) => (
     className="chip"
     id={id}
     variants={item}
-    onClick={() => handleClick(value)}
+    onClick={() => { handleClick(value); playChip(); }}
 
   />
 );

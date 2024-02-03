@@ -111,6 +111,12 @@ function startGame() {
                console.log(imageSrc);
 
                addYour(imageSrc);
+
+               if (yourSum == 21) {
+                console.log("you hit 21 now stand");
+        
+                stand();
+               }
                 
               }, 1);
           
@@ -126,6 +132,8 @@ function startGame() {
     if (yourSum > 21) {
         yourSum = reduceAce(yourSum, yourAceCount, true);
     }
+
+    
 
     document.getElementById("Hit").addEventListener("click", hit);
     document.getElementById("Stand").addEventListener("click", stand);
@@ -204,6 +212,7 @@ function hit() {
 
         if (bank == 0) {
 
+            bank = 500; //STARTS AT 500
             showMenu("BlackJack");
             
         } else {
@@ -221,6 +230,11 @@ function hit() {
 
   
 }
+
+if (yourSum == 21) {
+
+    stand();
+   }
 }
 
 function stand() {
@@ -440,6 +454,7 @@ setTimeout(() => {
 
         if (bank == 0) {
 
+            bank = 500; //STARTS AT 500
             showMenu("BlackJack");
             
         } else {
@@ -537,7 +552,7 @@ export const AnotherFileFunctionYour = (addDivtoYourContainer, clearContainer) =
 
   }
 
-  function openTheModal() {
+  export function openTheModal() {
 
     const openModalButton = document.getElementById('openModal');
   

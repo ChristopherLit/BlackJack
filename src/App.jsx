@@ -20,6 +20,8 @@ function App() {
         <Board></Board>
         <Buttons></Buttons>
         <Menu></Menu>
+
+        <div className='Sound-icon'></div>
         
         
         

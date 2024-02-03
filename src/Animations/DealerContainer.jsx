@@ -11,8 +11,10 @@ const DealerContainer = () => {
     const newDiv = {
         id: divs.length,
         imageName: imageName,
+        
       };
       setDivs([...divs, newDiv]);
+
     };
 
     const replaceImageInContainer = (oldImage, newImage) => {

@@ -8,6 +8,7 @@ import { allIn } from "./betting";
 import { half } from "./betting";
 import { deal } from "./betting";
 import { getBank } from "./blackjack";
+import { playSound } from "./Audio";
 
 const dropIn = {
   hidden: {
@@ -52,9 +53,9 @@ const Modal = ({ handleClose }) => {
           <div className="popup-container">
 
             <div className="button-container">
-                <ModalButton className="Half" label="Half" onClick={half}></ModalButton>
-                <ModalButton className="All-In" label="All In" onClick={allIn}></ModalButton>
-                <ModalButton className="Clear" label="Clear" onClick={clear}></ModalButton>
+                <ModalButton className="Half" label="Half" onClick={() => { half(); playSound(); }}></ModalButton>
+                <ModalButton className="All-In" label="All In" onClick={() => { allIn(); playSound(); }}></ModalButton>
+                <ModalButton className="Clear" label="Clear" onClick={() => { clear(); playSound(); }}></ModalButton>
             </div>
 
             <div id='balance' className='balance'>Balance: {getBank()}</div>
@@ -69,7 +70,7 @@ const Modal = ({ handleClose }) => {
                 
                 deal((result) => {
                   if (result == true) {
-
+                     playSound();
                     handleClose();
                     
                   }
