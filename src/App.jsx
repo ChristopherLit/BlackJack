@@ -6,6 +6,7 @@ import Board from './Board';
 import Buttons from './Buttons';
 import Menu from './Menu';
 
+
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const close = () => setModalOpen(false);
@@ -13,11 +14,8 @@ function App() {
 
   return (
     <div id='full-layout' className='full-layout'>
-
       <div className='game-layout'>
-        <div className='title'>
-          <h1>BlackJack</h1>
-        </div>
+    
 
         <Board></Board>
         <Buttons></Buttons>

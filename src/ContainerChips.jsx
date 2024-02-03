@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { updateBettingAmount } from './betting.jsx';
+import { getBank } from './blackjack.jsx';
+import { getTotal } from './betting.jsx';
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -11,6 +13,18 @@ const container = {
       delayChildren: 0.3,
       staggerChildren: 0.19
     }
+  }
+};
+
+const handleClick = (value) => {
+  if (getTotal() + value > getBank()) {
+
+    console.log("Not enough funds");
+   
+  } else {
+    console.log("Added: " + value);
+  
+    updateBettingAmount(value);
   }
 };
 
@@ -27,7 +41,7 @@ const Chip = ({ id, value }) => (
     className="chip"
     id={id}
     variants={item}
-    onClick={() => updateBettingAmount(value)}
+    onClick={() => handleClick(value)}
 
   />
 );

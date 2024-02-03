@@ -36,6 +36,8 @@ const Menu = () => {
                 {message}
             </div>
 
+            
+
             <motion.button
                 className='Start'
                 whileHover={{ scale: 1.1 }}

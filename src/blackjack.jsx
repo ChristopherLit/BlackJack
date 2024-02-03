@@ -202,7 +202,15 @@ function hit() {
 
     setTimeout(() => {
 
-        openTheModal();
+        if (bank == 0) {
+
+            showMenu("BlackJack");
+            
+        } else {
+
+            openTheModal();
+
+        }
     
         restart();
 
@@ -430,8 +438,16 @@ setTimeout(() => {
 
     setTimeout(() => {
 
-        openTheModal();
-    
+        if (bank == 0) {
+
+            showMenu("BlackJack");
+            
+        } else {
+
+            openTheModal();
+
+        }
+
         restart();
 
 
@@ -470,8 +486,15 @@ export function getBank() {
     return bank;
 }
 
+export function setBank(val) {
+
+    bank = bank - val; //Checking if val is greater than bank elsewhere
+
+}
+
 export function setGambled(val) {
     gambled = val;
+    
 }
 
 export const AnotherFileFunctionYour = (addDivtoYourContainer, clearContainer) => {

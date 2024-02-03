@@ -57,7 +57,7 @@ const Modal = ({ handleClose }) => {
                 <ModalButton className="Clear" label="Clear" onClick={clear}></ModalButton>
             </div>
 
-            <div className='balance'>Balance: {getBank()}</div>
+            <div id='balance' className='balance'>Balance: {getBank()}</div>
             
             <ContainerChips /> 
            
