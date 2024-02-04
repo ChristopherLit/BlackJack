@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { showTheMenu, startEverything } from "./blackjack";
 import './App.css';
 import { openTheModal } from './blackjack';
-import { setBank, getBank} from './blackjack';
-import { playSound } from './Audio';
+import { getBank} from './blackjack';
+import { playSound, playMusic } from './Audio';
 
 const Menu = () => {
     const [showBox, setShowBox] = useState(false);
@@ -46,7 +46,7 @@ const Menu = () => {
                 className='Start'
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.88 }}
-                onClick={() => { handleStartClick(); playSound(); }}
+                onClick={() => { handleStartClick(); playSound(); playMusic();}}
             >
                 Start
             </motion.button>

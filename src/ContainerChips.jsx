@@ -24,7 +24,6 @@ const handleClick = (value) => {
    
   } else {
     console.log("Added: " + value);
-  
     updateBettingAmount(value);
   }
 };

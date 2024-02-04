@@ -1,3 +1,5 @@
+import { resetTotal } from "./betting";
+
 var dealerSum = 0;
 var yourSum = 0;
 
@@ -26,7 +28,7 @@ let showMenu;
 
 window.onload = function () {
 
-    showMenu("BlackJack");
+    showMenu("BlackJack");  
 
 }
 
@@ -36,11 +38,9 @@ export function startEverything() {
     
     stopStand = false;
  
-
     buildDeck();
     shuffle();
     startGame();
-
     
 }
 
@@ -547,6 +547,7 @@ export const AnotherFileFunctionYour = (addDivtoYourContainer, clearContainer) =
     canHit = true;
 
     gambled = 0;
+    resetTotal();
 
     
 

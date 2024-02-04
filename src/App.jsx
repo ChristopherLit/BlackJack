@@ -6,11 +6,11 @@ import Board from './Board';
 import Buttons from './Buttons';
 import Menu from './Menu';
 
-
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
+
 
   return (
     <div id='full-layout' className='full-layout'>
@@ -22,9 +22,7 @@ function App() {
         <Menu></Menu>
 
         <div className='Sound-icon'></div>
-        
-        
-        
+     
         
         
 
