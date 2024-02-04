@@ -135,6 +135,9 @@
   width: 4vw;
   height: 3.2vh;
   font-size: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
 }
 
@@ -148,6 +151,9 @@
     width: 4vw;
     height: 3.2vh;
     font-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
  
   
 }
@@ -172,6 +178,10 @@
   width: 4vw;
   height: 3.2vh;
   font-size: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 
 }
 
@@ -227,14 +237,16 @@
 }
 
 #GameBoard {
-  width: 105%;
+  width: 115%;
   object-fit: cover;
   position: relative;
   top: 0;
-  left: 0;
+  left: -7%;
   z-index: 1;
 
+
 }
+
 
 
 .buttons {
@@ -506,6 +518,7 @@
   outline: none;
   z-index: 2;
   font-size: 130%;
+  
  
 }
 

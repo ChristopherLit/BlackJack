@@ -59,6 +59,11 @@ export function half() {
     return total;
 
   }
+
+  export function resetTotal() {
+
+    total = 0;
+  }
   
 
   export function updateBettingAmount(amount) {

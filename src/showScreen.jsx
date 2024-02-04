@@ -28,14 +28,15 @@ const ShowScreen = () => {
                     }}
                     onAnimationComplete={() => setShowBox(false)}
                     style={{
-                        width: '20%',
+                        width: '25%',
                         height: '40%', 
                         borderRadius: '50%',
                         backgroundColor: '#223043',
-                        right: '10%',
+                        right: '5%',
                         top: '30%',
                         position: 'absolute',
                         zIndex: 6,
+                        boxShadow: '0 0 10px rgba(0, 0, 0, 0.3)',
                     }}
                 >
                     <div className="textInCircle">
