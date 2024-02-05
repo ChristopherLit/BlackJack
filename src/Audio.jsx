@@ -19,20 +19,31 @@ export function playChip() {
 }
 
 export function playMusic() {
-  // If there is an existing audio element, stop it
   if (gameAudioElement) {
     gameAudioElement.pause();
     gameAudioElement.currentTime = 0;
   }
 
-  // Create a new audio element
+ 
   gameAudioElement = new Audio(music);
   gameAudioElement.loop = true;
   gameAudioElement.volume = 0.9;
 
-  // Start playing the audio
+ 
   gameAudioElement.play();
 }
 
+export function switchIcon(isSoundOn, setIsSoundOn) {
+  
+  setIsSoundOn(!isSoundOn);
+}
 
+export function muteMusic(isSoundOn) {
 
+  if (isSoundOn) {
+    gameAudioElement.volume = 0;
+  } else {
+    gameAudioElement.volume = 0.9;
+  }
+
+}

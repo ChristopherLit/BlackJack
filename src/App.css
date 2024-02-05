@@ -36,7 +36,7 @@
   filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#324465", endColorstr="#1D2740", GradientType=1 );
   border-radius: 80px;
   
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 80px 80px, rgba(0, 0, 0, 0.12) 0px -16px 40px, rgba(0, 0, 0, 0.12) 0px 8px 12px, rgba(0, 0, 0, 0.17) 0px 16px 16px, rgba(0, 0, 0, 0.09) 0px -5px 8px;
 
 }
 
@@ -527,24 +527,9 @@
   outline: none;
 }
 
-.Sound-icon {
-  background-image: url('./assets/Sound Icon.png');
-  width: 3.5%;
-  height: 5%;
-  border-radius: 35%;
- background-color: #283a57;
 
 
-  position: absolute;
-  top: 5%;
-  right: 5%;
-  margin-top: 0;
-  margin-right: 0;
-  z-index: 3;
-}
-
-
-.Sound-icon:active,
+.Sound-Icon:active,
 .Sound-icon:focus {
   outline: none;
 }

@@ -5,11 +5,15 @@ import Modal from './Modal';
 import Board from './Board';
 import Buttons from './Buttons';
 import Menu from './Menu';
+import { switchIcon } from './Audio';
+import { muteMusic } from './Audio';
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [isSoundOn, setIsSoundOn] = useState(true);
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
+  const toggleSound = () => setIsSoundOn(!isSoundOn);
 
 
   return (
@@ -21,7 +25,32 @@ function App() {
         <Buttons></Buttons>
         <Menu></Menu>
 
-        <div className='Sound-icon'></div>
+        
+        <div
+          id="Sound-Icon"
+          onClick={() => {
+            toggleSound();
+            switchIcon(isSoundOn, setIsSoundOn);
+            muteMusic(isSoundOn);
+          }}
+          style={{
+            width: '3.5%',
+            height: '5%',
+            borderRadius: '35%',
+            backgroundColor: '#283a57',
+            objectFit: 'cover',
+            position: 'absolute',
+            top: '5%',
+            right: '5%',
+            marginTop: '0',
+            marginRight: '0',
+            zIndex: '3',
+            backgroundSize: '100%',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center center',
+            backgroundImage: `url('./src/assets/Music ${isSoundOn ? 'On' : 'Off'}.png')`,
+          }}
+        ></div>
      
         
         
